@@ -6,6 +6,8 @@ const dotenv= require("dotenv")
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path=require("path")
+const cors = require('cors');
+
 //config
 
 
@@ -13,7 +15,11 @@ if(process.env.NODE_ENV!=="PRODUCTION"){
 
     require("dotenv").config({path:"BackEnd/config/config.env"})
 }
-
+app.use(cors({
+    origin: "https://ecomshopingwe.netlify.app",  // Netlify URL
+    credentials: true
+  }));
+  
 app.use(express.json())
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended:true}))
