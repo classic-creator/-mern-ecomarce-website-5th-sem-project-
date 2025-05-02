@@ -47,7 +47,7 @@ import ProductReviews from "./componant/admin/ProductReviews.js"
 import About from "./componant/layout/about/about.js"
 import NotFound from "./componant/layout/NotFound/NotFound.js"
 
-
+const API_BASE = process.env.REACT_APP_API_URL || "";
 
 
 function App() {
@@ -57,7 +57,7 @@ function App() {
   const [stripeApiKey, setStripeApiKey] = useState("")
 
   async function getStripeApiKey() {
-    const { data } = await axios.get("/api/v1/stripeapikey")
+    const { data } = await axios.get(`${API_BASE}/api/v1/stripeapikey`)
     setStripeApiKey(data.stripeApiKey)
   }
 
