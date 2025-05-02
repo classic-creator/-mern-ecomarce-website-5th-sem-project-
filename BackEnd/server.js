@@ -3,7 +3,12 @@ const app = require("./app");
 
 const cloudinary = require("cloudinary")
 const connactDataBase=require ("./config/database") 
+const cors = require('cors');
 
+app.use(cors({
+  origin: "https://ecomshopingwe.netlify.app",  // Netlify URL
+  credentials: true
+}));
 
 //handling uncaught exception
 
